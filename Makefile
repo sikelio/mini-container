@@ -3,3 +3,6 @@ build:
 
 launch:
 	make build && sudo ./out/main
+
+clean:
+	rm -r /home/sik/chroot
