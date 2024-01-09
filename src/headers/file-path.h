@@ -1,5 +1,5 @@
-#ifndef FILEPATH_H
-#define FILEPATH_H
+#ifndef FILE_PATH_H
+#define FILE_PATH_H
 
 typedef struct {
     const char *sourcePath;
