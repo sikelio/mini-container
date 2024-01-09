@@ -1,8 +1,6 @@
 #include "./src/headers/main.h"
 #include "./src/headers/file-path.h"
 
-int unshare(int flags);
-
 int main() {
     const char *chrootDir = "/home/sik/chroot";
 

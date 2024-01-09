@@ -7,3 +7,10 @@
 #define _GNU_SOURCE
 #define CLONE_NEWPID 0x00000200
 #define CLONE_NEWNS 0x00020000
+
+#ifndef MAIN_H
+#define MAIN_H
+
+int unshare(int flags);
+
+#endif
