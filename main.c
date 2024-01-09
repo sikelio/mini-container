@@ -1,50 +1,7 @@
-#define _GNU_SOURCE
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/mount.h>
-#include <sys/stat.h>
-#include <errno.h>
-
-#define CLONE_NEWPID 0x00000200
-#define CLONE_NEWNS  0x00020000
-
-typedef struct {
-    const char *sourcePath;
-    const char *destPath;
-} FilePath;
+#include "./src/headers/main.h"
+#include "./src/headers/file-path.h"
 
 int unshare(int flags);
-
-int createDir(const char *baseDir, const char *subDir) {
-    char fullPath[100];
-
-    snprintf(fullPath, sizeof(fullPath), "%s%s", baseDir, subDir);
-
-    if (mkdir(fullPath, 0755) == -1 && errno != EEXIST) {
-        perror("mkdir error");
-
-        return 1;
-    }
-
-    return 0;
-}
-
-int copyFile(const FilePath file) {
-    char command[1024];
-
-    snprintf(command, sizeof(command), "cp %s %s", file.sourcePath, file.destPath);
-
-    if (system(command) == -1) {
-        perror("copy file error");
-
-        return 1;
-    }
-
-    return 0;
-}
 
 int main() {
     const char *chrootDir = "/home/sik/chroot";
