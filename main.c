@@ -1,7 +1,15 @@
 #include "./src/headers/main.h"
 
-int main() {
-    const char *chrootDir = "/home/sik/chroot";
+int main(int argc, char** argv) {
+    char *chrootDir;
+
+    if (!argv[1]) {
+        printf("no chroot directory entered\n");
+
+        return 1;
+    }
+
+    chrootDir = argv[1];
 
     const char *subDirs[] = { "", "/bin", "/lib64", "/lib", "/lib/x86_64-linux-gnu" };
     int subDirsCount = sizeof(subDirs) / sizeof(subDirs[0]);
