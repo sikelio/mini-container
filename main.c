@@ -1,5 +1,4 @@
 #include "./src/headers/main.h"
-#include "./src/headers/file-path.h"
 
 int main() {
     const char *chrootDir = "/home/sik/chroot";

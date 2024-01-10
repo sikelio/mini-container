@@ -3,6 +3,7 @@
 #include <sys/mount.h>
 
 #include "file-handler.h"
+#include "file-path.h"
 
 #define _GNU_SOURCE
 #define CLONE_NEWPID 0x00000200
@@ -12,5 +13,6 @@
 #define MAIN_H
 
 int unshare(int flags);
+int main();
 
 #endif
